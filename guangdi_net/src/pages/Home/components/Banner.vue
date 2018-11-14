@@ -1,8 +1,9 @@
+
 <template>
 	<div class="Banner">
 		<mt-swipe :auto="1500">
-			<mt-swipe-item v-for="(item,index) of imgList">
-				<img :src="item.url">
+			<mt-swipe-item v-for="(item,index) of imgList" :key="index">
+				<img :src="item.url" :key="item.id">
 			</mt-swipe-item>
 		</mt-swipe>
 	</div>
@@ -22,11 +23,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.banner {
+.Banner {
     width: 750px;
     height: 320px;
-    background: red;
+    background: #ddd;
     margin: 0 auto;
+	
     .mint-swipe-items-wrap {
         img {
             width: 750px;

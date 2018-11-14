@@ -15,7 +15,10 @@
 <style lang="less" scoped>
 	@searchcolor:#cdcbcb;
 	.HomeHeader{
+		width: 100%;
 		height: 88px;
+		position: fixed;
+		z-index: 999;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
