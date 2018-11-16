@@ -6,12 +6,10 @@
 </template>
 
 <script>
-	name:"Find"
-	export default {
-		
-	}
+export default {
+	name: 'Find',
+};
 </script>
 
 <style scoped>
-
 </style>
