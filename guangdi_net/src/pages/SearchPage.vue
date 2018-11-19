@@ -6,7 +6,7 @@
 		<div class="content">
 			<div class="record">
 				<div class="title">历史记录</div>
-				<p class="nothing"  >暂无历史记录</p>
+				<p class="nothing">暂无历史记录</p>
 				<ul style="display: none;">
 					<li>嗷嗷啊2</li>
 				</ul>

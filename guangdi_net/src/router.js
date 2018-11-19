@@ -4,6 +4,7 @@ import Home from './pages/Home/Home.vue'
 import Find from './pages/Find/Find.vue'
 import ShopCar from './pages/ShopCar/ShopCar.vue'
 import User from './pages/User/User.vue'
+import Classify from './pages/Classify/Classify.vue'
 import SearchPage from './pages/SearchPage.vue'
 
 Vue.use(Router)
@@ -31,6 +32,11 @@ export default new Router({
 			path: '/User',
 			name: 'user',
 			component: User
+		},
+		{
+			path: '/Classify',
+			name: 'classify',
+			component: Classify
 		},
 		{
 			path: '/SearchPage',

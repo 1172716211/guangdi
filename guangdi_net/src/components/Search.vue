@@ -2,7 +2,7 @@
 	<div class="Search">
 		<i class="iconfont" @click="clickReturn()">&#xe60b;</i>
 		<form>
-			<input type="text" placeholder="请输入搜索条件" ref="textVal" v-model="textVal"/>
+			<input type="text" placeholder="请输入搜索内容" ref="textVal" v-model="textVal"/>
 		</form>
 		<input class="searchBtn border" type="button" value="搜索" @click="search()">
 	</div>

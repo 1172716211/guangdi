@@ -1,6 +1,6 @@
 <template>
 	<div class="HomeHeader">
-		<router-link to="/Find" class="findbtn"></router-link>
+		<router-link to="/Classify" class="Classifybtn"></router-link>
 		<router-link to="/SearchPage" class="search border">
 			<i class="iconfont">&#xe60f;</i>
 		</router-link>
@@ -25,7 +25,7 @@
 		background-color: #fff;
 		box-sizing: border-box;
 		padding: 0px 60px;
-		.findbtn{
+		.Classifybtn{
 			display: block;
 			width: 40px;
 			height: 41px;
