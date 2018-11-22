@@ -6,9 +6,9 @@
 		<div class="content">
 			<div class="record">
 				<div class="title">历史记录</div>
-				<p class="nothing">暂无历史记录</p>
-				<ul style="display: none;">
-					<li>嗷嗷啊2</li>
+				<p class="nothing" style="display: none;">暂无历史记录</p>
+				<ul>
+					<li v-for="(item,index) of SearchItemList" :key="index">{{item}}</li>
 				</ul>
 			</div>
 			
@@ -27,7 +27,22 @@
 
 <script>
 	export default {
-		name:"SearchPage"
+		name:"SearchPage",
+		data(){
+			return{  
+				SearchItemList:[]  
+			}  
+		},
+		methods: {
+			SearchList(){
+				var SearchItem = JSON.parse(localStorage.getItem("textValList"))
+				this.SearchItemList = SearchItem
+				// console.log(this.SearchItemList);
+			}
+		},
+		mounted() {  
+			this.SearchList()
+		}
 	}
 </script>
 
@@ -41,10 +56,10 @@
 	}
 	.content .title{
 		width: 100%;
-		height: 70px;
 		display: flex;
 		align-items: center;
 		padding: 55px 0px 40px 28px;
+		box-sizing: border-box;
 		color: #666;
 		font-size: 32px;
 	}

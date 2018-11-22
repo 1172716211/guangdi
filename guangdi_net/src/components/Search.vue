@@ -2,9 +2,11 @@
 	<div class="Search">
 		<i class="iconfont" @click="clickReturn()">&#xe60b;</i>
 		<form>
-			<input type="text" placeholder="请输入搜索内容" ref="textVal" v-model="textVal"/>
+			<input type="text" placeholder="请输入搜索内容" ref="textVal" />
 		</form>
-		<input class="searchBtn border" type="button" value="搜索" @click="search()">
+		<slot>
+			<input class="searchBtn" type="button" value="搜索" @click.prevent="search()">
+		</slot>
 	</div>
 </template>
 
@@ -13,8 +15,8 @@ export default {
     name: 'Search',
 	data() {
 		return {
-			textValItem:null,
-			textVal:[]
+			textValList:[],			//搜索的内容存放的数组
+			SearchItem:[]			//本地离线存储textValList有内容时获取下来存放到该数组
 		}
 	},
 	methods:{
@@ -22,10 +24,23 @@ export default {
 			this.$router.go(-1)
 		},
 		search(){
-			if(this.$refs.textVal.value != ""){
-				// console.log(this.$refs.textVal.value)
-				// console.log(this.textValItem)
-			}
+// 			if(this.$refs.textVal.value.length > 0){
+// 				if(localStorage.getItem("textValList") == null){
+// 					this.textValList.push(this.$refs.textVal.value)
+// 					// this.textValList.reverse()
+// 					console.log(this.textValList);
+// 					console.log("fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck")
+// 					// localStorage.setItem("textValList",JSON.stringify(that.textValList))
+// 				}
+// 				else{
+// 					console.log("mmp");
+// 					var locVal = JSON.parse(localStorage.getItem("textValList"))
+// 					this.SearchItem = locVal
+// 					this.textValList.push.apply(this.SearchItem,this.textValList)
+// 					// console.log(this.SearchItem)
+// 				}
+// 			}
+			this.$router.push("SearchList")
 		}
 	}
 };
@@ -62,7 +77,8 @@ export default {
 				height: 58px;
 				border: 2px solid @SearchStyle;
 				border-radius: 10px;
-				padding: 5px;
+				padding: 0px 5px;
+				line-height: 58px;
 				box-sizing: border-box;
 			}
 			input::placeholder{

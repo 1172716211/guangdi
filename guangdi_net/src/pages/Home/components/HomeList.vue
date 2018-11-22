@@ -242,7 +242,7 @@ export default {
                 box-sizing: border-box;
             }
             .new {
-                width: 213px;
+                width: 212px;
                 height: 191px;
                 border-right: 1px solid #ccc;
                 .img {
@@ -262,7 +262,7 @@ export default {
                 }
             }
             .sec {
-                width: 213px;
+                width: 212px;
                 height: 191px;
                 .img {
                     width: 100%;

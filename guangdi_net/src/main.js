@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import MenuBar from '@/components/MenuBar.vue'
+import ComHeader from '@/components/ComHeader.vue'
 import Search from '@/components/Search.vue'
+import MenuBar from '@/components/MenuBar.vue'
 import MintUI from 'mint-ui'
 
 Vue.config.productionTip = false
@@ -12,6 +13,7 @@ import '@/styles/iconfont.css'
 import '@/styles/border.css'
 import 'mint-ui/lib/style.css'
 
+Vue.component('ComHeader', ComHeader)
 Vue.component('MenuBar', MenuBar)
 Vue.component('Search', Search)
 Vue.use(MintUI)

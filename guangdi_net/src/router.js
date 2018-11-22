@@ -6,6 +6,7 @@ import ShopCar from './pages/ShopCar/ShopCar.vue'
 import User from './pages/User/User.vue'
 import Classify from './pages/Classify/Classify.vue'
 import SearchPage from './pages/SearchPage.vue'
+import SearchList from './pages/SearchList/SearchList.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
 			path: '/SearchPage',
 			name: 'searchpage',
 			component: SearchPage
+		},
+		{
+			path: '/SearchList',
+			name: 'searchlist',
+			component: SearchList
 		},
   ]
 })
