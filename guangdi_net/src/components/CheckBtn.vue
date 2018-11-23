@@ -28,6 +28,7 @@
 
 <style>
 	.CheckBtn .iconfont{
+		margin-right: 5px;
 		font-size: 20px;
 		color: #9e9e9e;
 	}

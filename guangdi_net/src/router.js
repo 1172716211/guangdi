@@ -7,6 +7,7 @@ import User from './pages/User/User.vue'
 import Classify from './pages/Classify/Classify.vue'
 import SearchPage from './pages/SearchPage.vue'
 import SearchList from './pages/SearchList/SearchList.vue'
+import ProDetails from './pages/ProDetails/ProDetails.vue'
 
 Vue.use(Router)
 
@@ -48,6 +49,11 @@ export default new Router({
 			path: '/SearchList',
 			name: 'searchlist',
 			component: SearchList
+		},
+		{
+			path: '/ProDetails',
+			name: 'prodetails',
+			component: ProDetails
 		},
   ]
 })

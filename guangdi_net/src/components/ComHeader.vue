@@ -1,3 +1,11 @@
+<!-- 全局组件 ComHeader -->
+
+<!-- 使用方法：
+	<ComHeader>
+		left:默认自带的返回键，不需要时添加空具名插槽标签
+		title:中间标题
+		right:右边按钮
+	</ComHeader> -->
 <template>
 	<div class="ComHeader">
 		<slot name="left">

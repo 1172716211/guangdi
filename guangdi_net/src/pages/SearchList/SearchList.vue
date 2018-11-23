@@ -2,7 +2,7 @@
 	<div class="SearchList">
 		<div class="wrap">
 			<Search>
-				<router-link to="/Classify"><i class="iconfont">&#xe624;</i></router-link>
+				<router-link to="/Classify"><i class="iconfont menu">&#xe624;</i></router-link>
 			</Search>
 			<div class="content">
 				<div class="screenBtn">
@@ -141,7 +141,7 @@
 						"price":198
 					},
 					{
-						"id":1,
+						"id":2,
 						"imgUrl":require('@/images/HomeProList/proList01.jpg'),
 						"title":"新款专业吹风机静音美发负离子 GD-8896",
 						"lableIcon":"第二件半价",
@@ -150,7 +150,7 @@
 						"price":198
 					},
 					{
-						"id":1,
+						"id":3,
 						"imgUrl":require('@/images/HomeProList/proList01.jpg'),
 						"title":"新款专业吹风机静音美发负离子 GD-8896",
 						"lableIcon":"第二件半价",
@@ -159,7 +159,7 @@
 						"price":198
 					},
 					{
-						"id":1,
+						"id":4,
 						"imgUrl":require('@/images/HomeProList/proList01.jpg'),
 						"title":"新款专业吹风机静音美发负离子 GD-8896",
 						"lableIcon":"第二件半价",
@@ -168,7 +168,7 @@
 						"price":198
 					},
 					{
-						"id":1,
+						"id":5,
 						"imgUrl":require('@/images/HomeProList/proList01.jpg'),
 						"title":"新款专业吹风机静音美发负离子 GD-8896",
 						"lableIcon":"第二件半价",
@@ -177,7 +177,7 @@
 						"price":198
 					},
 					{
-						"id":1,
+						"id":6,
 						"imgUrl":require('@/images/HomeProList/proList01.jpg'),
 						"title":"新款专业吹风机静音美发负离子 GD-8896",
 						"lableIcon":"第二件半价",
@@ -208,6 +208,11 @@
 	width: 100%;
 	height:100%;
 	.wrap{
+		.menu{
+			font-size: 45px;
+			color: #44403f;
+			padding: 0px 30px 0px 0px;
+		}
 		.content{
 			background: #e9e9e9;
 			height: 100%;
@@ -245,7 +250,6 @@
 						background-color: #fff;
 						.img {
 							width: 40%;
-							height: ;
 							position: relative;
 							overflow: hidden;
 							img {
@@ -340,6 +344,7 @@
 						border: 2px solid #d1d1d1;
 						margin: 0px 27px 20px;
 						padding: 0px 30px;
+						line-height: 40px;
 					}
 				}
 			}
