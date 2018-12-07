@@ -2,9 +2,9 @@
 	<div class="Search">
 		<i class="iconfont" @click="clickReturn()">&#xe60b;</i>
 		<form>
-			<input type="text" placeholder="请输入搜索内容" ref="textVal" />
+			<slot name="conter"><input type="text" placeholder="请输入搜索内容" autofocus="autofocus" ref="textVal" /></slot>
 		</form>
-		<slot>
+		<slot name="right">
 			<input class="searchBtn" type="button" value="搜索" @click.prevent="search()">
 		</slot>
 	</div>
@@ -16,7 +16,8 @@ export default {
 	data() {
 		return {
 			textValList:[],			//搜索的内容存放的数组
-			SearchItem:[]			//本地离线存储textValList有内容时获取下来存放到该数组
+			localStorageList:[],			//拿下来离线存储的数据并保存到该数组
+			SearchList:[]			//最终搜索记录数组
 		}
 	},
 	methods:{
@@ -24,23 +25,18 @@ export default {
 			this.$router.go(-1)
 		},
 		search(){
-// 			if(this.$refs.textVal.value.length > 0){
-// 				if(localStorage.getItem("textValList") == null){
-// 					this.textValList.push(this.$refs.textVal.value)
-// 					// this.textValList.reverse()
-// 					console.log(this.textValList);
-// 					console.log("fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck")
-// 					// localStorage.setItem("textValList",JSON.stringify(that.textValList))
-// 				}
-// 				else{
-// 					console.log("mmp");
-// 					var locVal = JSON.parse(localStorage.getItem("textValList"))
-// 					this.SearchItem = locVal
-// 					this.textValList.push.apply(this.SearchItem,this.textValList)
-// 					// console.log(this.SearchItem)
-// 				}
-// 			}
-			this.$router.push("SearchList")
+			//本地离线的历史记录不等于空时存到数组localStorageList
+			if(localStorage.getItem("searchecord") != null){
+				this.localStorageList = JSON.parse(localStorage.getItem("searchecord"))
+			}
+			// 搜索框输入文字时保存到textValList数组
+			if(this.$refs.textVal.value.length > 0){
+				this.textValList.push(this.$refs.textVal.value)
+				this.SearchList = this.textValList.concat(this.localStorageList)
+				this.SearchList.splice(15)				//最多显示10条
+				localStorage.setItem("searchecord",JSON.stringify(this.SearchList))		//把SearchList数组存进离线存储
+				this.$router.push("SearchList")
+			}
 		}
 	}
 };

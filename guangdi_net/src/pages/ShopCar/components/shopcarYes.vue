@@ -20,9 +20,9 @@
 							<div class="priceList">
 								<span class="price">{{ item.price | rmb }}</span>
 								<div class="numberBtn">
-									<button @click=" numberVal <= 1 ? numberVal = 1 : numberVal-- ">-</button>
-									<input type="text" :value=" numberVal " />
-									<button @click=" numberVal++ ">+</button>
+									<button @click=" item.number <= 1 ? item.number = 1 : item.number-- ">-</button>
+									<input type="text" :value=" item.number " />
+									<button @click=" item.number++ ">+</button>
 								</div>
 							</div>
 						</div>
@@ -72,6 +72,7 @@
 		data() {
 			return {
 				"numberVal":1,
+				"allTotal":null,
 			}
 		},
 		filters: {

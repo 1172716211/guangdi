@@ -5,15 +5,19 @@
 		</div>
 		<div class="content">
 			<div class="record">
-				<div class="title">历史记录</div>
-				<p class="nothing" style="display: none;">暂无历史记录</p>
-				<ul>
-					<li v-for="(item,index) of SearchItemList" :key="index">{{item}}</li>
-				</ul>
+				<h2 class="title">历史记录</h2>
+				<p class="nothing" ref="noRecord" v-if="Searchshow">暂无历史记录</p>
+				<div class="main" ref="mainBox" v-else>
+					<ul>
+						<li v-for="(item,index) of SearchItemList" :key="index">{{item}}</li>
+					</ul>
+					<button @click.prevent="empty()">清空历史纪录</button>
+					
+				</div>
 			</div>
 			
 			<div class="hotSearch">
-				<div class="title">热搜词</div>
+				<h2 class="title">热搜词</h2>
 				<ul>
 					<li>电吹风系列</li>
 					<li>干衣机系列</li>
@@ -29,15 +33,27 @@
 	export default {
 		name:"SearchPage",
 		data(){
-			return{  
-				SearchItemList:[]  
+			return{
+				Searchshow:true,
+				SearchItemList:[]
 			}  
 		},
 		methods: {
 			SearchList(){
-				var SearchItem = JSON.parse(localStorage.getItem("textValList"))
-				this.SearchItemList = SearchItem
-				// console.log(this.SearchItemList);
+				if(localStorage.getItem("searchecord") != null){
+					this.SearchItemList = JSON.parse(localStorage.getItem("searchecord"))
+				}
+				if(this.SearchItemList.length === 0){
+					this.Searchshow = true
+				}else{
+					this.Searchshow = false
+				}
+			},
+			empty(){
+					localStorage.removeItem("searchecord")
+					// localStorage.clear()
+					this.SearchItemList = []
+					this.SearchList()
 			}
 		},
 		mounted() {  
@@ -72,21 +88,23 @@
 		border-radius: 3px;
 		margin-right: 30px;
 	}
-	.content .record{
-		
-	}
+	
 	.content .record .nothing{
+		display: block;
 		text-align: center;
 		font-size: 32px;
 		color: #999;
 		padding-bottom: 90px;
 	}
-	.content .record ul{
+	.content .record .main{
+		margin-bottom: 20px;
+	}
+	.content .record .main ul{
 		display: flex;
 		flex-wrap: wrap;
 		margin-bottom: 90px;
 	}
-	.content .record ul li{
+	.content .record .main ul li{
 		height: 40px;
 		margin: 10px 6px;
 		padding: 5px 30px;
@@ -94,6 +112,16 @@
 		background: #eee;
 		font-size: 28px;
 		color: #888;
+	}
+	.content .record .main button{
+		display: block;
+		width: 50%;
+		height: 50px;
+		background-color: #eee;
+		border-radius: 12px;
+		margin: 0px auto;
+		color: #666;
+		font-size: 28px;
 	}
 	.content .record:after{
 		content: "";

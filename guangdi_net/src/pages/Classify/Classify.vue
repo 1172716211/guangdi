@@ -20,7 +20,7 @@
 						<h2>{{item.title}}</h2>
 						<div class="proItem">
 							<ol>
-								<li v-for="proItem of item.proListItem" :key="proItem.id">
+								<li v-for="(proItem,index) of item.proListItem" :key="index">
 									<div class="imgBox"> 
 										<img :src="proItem.url">
 									</div>
@@ -153,27 +153,27 @@
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":3,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":4,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":5,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":6,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":7,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							}
@@ -193,7 +193,47 @@
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
+								"id":3,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":4,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":5,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":6,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":7,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":8,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":9,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":10,
+								"url":require('../.././images/HomeProList/homelist01.jpg'),
+								"proinfo":"GD-8897"
+							},
+							{
+								"id":11,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							},
@@ -203,47 +243,7 @@
 								"proinfo":"GD-8897"
 							},
 							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
-								"url":require('../.././images/HomeProList/homelist01.jpg'),
-								"proinfo":"GD-8897"
-							},
-							{
-								"id":2,
+								"id":13,
 								"url":require('../.././images/HomeProList/homelist01.jpg'),
 								"proinfo":"GD-8897"
 							}

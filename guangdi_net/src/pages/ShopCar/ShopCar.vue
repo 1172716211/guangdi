@@ -29,6 +29,7 @@
 						"sale":198,
 						"integral":20,
 						"price":198,
+						"number":1,
 					},
 					{
 						"id":2,
@@ -38,6 +39,7 @@
 						"sale":198,
 						"integral":20,
 						"price":198,
+						"number":1,
 					},
 					{
 						"id":3,
@@ -47,6 +49,7 @@
 						"sale":198,
 						"integral":20,
 						"price":198,
+						"number":1,
 					},
 				],
 				"similarList": [

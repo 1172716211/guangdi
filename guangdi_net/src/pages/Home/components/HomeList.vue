@@ -15,7 +15,7 @@
 					<i ref="s">{{secondNum | twoNum}}</i>
 				</div>
 				<div class="img">
-					<img src="@/images/HomeProList/proList01.jpg" alt="">
+					<img src="https://1172716211.github.io/guangdi_img/HomeProList/proList01.jpg" alt="">
 				</div>
 			</div>
 			<ul>
@@ -25,7 +25,7 @@
 						<h3>99元起</h3>
 					</div>
 					<div class="img">
-						<img src="@/images/HomeProList/proList02.jpg" alt="">
+						<img src="https://1172716211.github.io/guangdi_img/HomeProList/proList02.jpg" alt="">
 					</div>
 				</li>
 				<li class="sec">
@@ -34,7 +34,7 @@
 						<h3>88元起</h3>
 					</div>
 					<div class="img">
-						<img src="@/images/HomeProList/proList03.jpg" alt="">
+						<img src="https://1172716211.github.io/guangdi_img/HomeProList/proList03.jpg" alt="">
 					</div>
 				</li>
 				<li class="special">
@@ -43,7 +43,7 @@
 						<h3>0.8折抢</h3>
 					</div>
 					<div class="img">
-						<img src="@/images/HomeProList/proList04.png" alt="">
+						<img src="https://1172716211.github.io/guangdi_img/HomeProList/proList04.png" alt="">
 					</div>
 				</li>
 			</ul>
@@ -85,49 +85,15 @@ export default {
     name: 'HomeList',
     data() {
         return {
-            hourNum: 3,
-            minuteNum: 23,
-            secondNum: 43,
-            classList: [
-                { id: 1, title: '电吹风系列', imgUrl: require('@/images/HomeProList/homelist01.jpg') },
-                { id: 2, title: '包装盒展开图', imgUrl: require('@/images/HomeProList/homelist02.jpg') },
-                { id: 3, title: '干衣机系列', imgUrl: require('@/images/HomeProList/homelist03.jpg') }
-            ],
-            hotList: [
-                { id: 4, imgUrl: require('@/images/HomeProList/proList01.jpg') },
-                { id: 5, imgUrl: require('@/images/HomeProList/proList02.jpg') },
-                { id: 6, imgUrl: require('@/images/HomeProList/proList03.jpg') }
-            ],
-            lowPrice: [
-                {
-                    id: 7,
-                    imgUrl: require('@/images/HomeProList/lowPrice01.jpg'),
-                    newPrice: 109,
-                    oldPrice: 179
-                },
-                {
-                    id: 8,
-                    imgUrl: require('@/images/HomeProList/lowPrice02.jpg'),
-                    newPrice: 169,
-                    oldPrice: 279
-                },
-                {
-                    id: 9,
-                    imgUrl: require('@/images/HomeProList/lowPrice03.jpg'),
-                    newPrice: 189,
-                    oldPrice: 349
-                },
-                {
-                    id: 10,
-                    imgUrl: require('@/images/HomeProList/lowPrice04.jpg'),
-                    newPrice: 156,
-                    oldPrice: 269
-                }
-            ],
-            loveList: [
-                { id: 12, imgUrl: require('@/images/HomeProList/loveList02.jpg'), Price: 109 },
-                { id: 13, imgUrl: require('@/images/HomeProList/loveList03.jpg'), Price: 169 }
-            ]
+			nowTime:0,
+			d:0,
+            hourNum: 0,
+            minuteNum: 0,
+            secondNum: 0,
+            "classList": [],
+            "hotList": [],
+            "lowPrice": [],
+            "loveList": []
         };
     },
     filters: {
@@ -144,7 +110,45 @@ export default {
                 return val;
             }
         }
-    }
+    },
+	created(){
+		this.getApiData()
+		this.countTime()
+	},
+	methods:{
+		getApiData() {
+			var that = this
+			this.$http.get('https://easy-mock.com/mock/5c04f8ca0f900b1961c8c88b/guangdi/HomeList')
+			.then(function(res){
+				that.nowTime = res.data.nowTime
+				that.classList = res.data.classList
+				that.hotList = res.data.hotList
+				that.lowPrice = res.data.lowPrice
+				that.loveList = res.data.loveList
+			})
+		},
+		countTime() {
+			var that = this
+			//获取当前时间
+			var date = new Date();
+			var now = date.getTime();
+			//设置截止时间
+			var endDate = new Date("2018-12-8 23:23:23")//此处应为接口传进来的时间
+			var end = endDate.getTime();
+			//时间差
+			var leftTime = end - now;
+			//定义变量 d,h,m,s保存倒计时的时间
+			if (leftTime >= 0) {
+				this.d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
+				this.hourNum = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+				this.minuteNum = Math.floor(leftTime / 1000 / 60 % 60);
+				this.secondNum = Math.floor(leftTime / 1000 % 60);
+			}
+			// console.log(this.secondNum);
+			//递归每秒调用countTime方法，显示动态时间效果
+			setTimeout(this.countTime, 1000);
+        },
+	},
 };
 </script>
 <style lang="less" scoped>

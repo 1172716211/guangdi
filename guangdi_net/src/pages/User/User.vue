@@ -11,7 +11,7 @@
 						<img src="../../images/HomeProList/proList04.png" />
 					</div>
 					<div class="main">
-						<p>管理员root</p>
+						<p>访客</p>
 						<p>137****7124</p>
 					</div>
 				</div>

@@ -9,6 +9,9 @@ import SearchPage from './pages/SearchPage.vue'
 import SearchList from './pages/SearchList/SearchList.vue'
 import ProDetails from './pages/ProDetails/ProDetails.vue'
 
+import detailsPage from './pages/ProDetails/components/detailsPage.vue'
+import publicPraise from './pages/ProDetails/components/publicPraise.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -52,8 +55,18 @@ export default new Router({
 		},
 		{
 			path: '/ProDetails',
-			name: 'prodetails',
-			component: ProDetails
+			name: 'ProDetails',
+			component: ProDetails,
+			redirect: '/ProDetails/detailsPage',
+			children: [{
+					path: '/ProDetails/detailsPage',
+					component: detailsPage
+				},
+				{
+					path: '/ProDetails/publicPraise',
+					component: publicPraise
+				}
+			]
 		},
   ]
 })

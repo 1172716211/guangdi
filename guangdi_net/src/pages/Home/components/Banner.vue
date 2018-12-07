@@ -13,13 +13,18 @@ export default {
     name: 'Banner',
     data() {
         return {
-            imgList: [
-                { id: 1, url: require('@/images/Homebanner/banner01.jpg') },
-                { id: 2, url: require('@/images/Homebanner/banner02.jpg') },
-                { id: 3, url: require('@/images/Homebanner/banner03.jpg') }
-            ]
+            imgList: []
         }
-    }
+    },
+	created(){
+		var that = this
+		this.$http.get('https://easy-mock.com/mock/5c04f8ca0f900b1961c8c88b/guangdi/banner')
+		.then(function(res){
+			
+			that.imgList = res.data.imgList
+			
+		})
+	}
 }
 </script>
 <style lang="less" scoped>

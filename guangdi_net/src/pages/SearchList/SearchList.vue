@@ -2,7 +2,10 @@
 	<div class="SearchList">
 		<div class="wrap">
 			<Search>
-				<router-link to="/Classify"><i class="iconfont menu">&#xe624;</i></router-link>
+				<div slot="conter" @click="clickReturn()" class="search">
+					<i class="iconfont">&#xe60f;</i>
+				</div>
+				<router-link slot="right" to="/Classify"><i class="iconfont menu">&#xe624;</i></router-link>
 			</Search>
 			<div class="content">
 				<div class="screenBtn">
@@ -39,7 +42,7 @@
 		<div class="popup">
 			<mt-popup position="right" v-model="popupVisible" pop-transition="popup-fade">
 				<div class="popupHeader">
-					<i class="iconfont" @click="clickReturn()">&#xe60b;</i>
+					<i class="iconfont" @click="screenClick()">&#xe60b;</i>
 					<h2>筛选</h2>
 					<span></span>
 				</div>
@@ -103,7 +106,6 @@
 			</mt-popup>
 		</div>
 	</div>
-	
 </template>
 
 <script>
@@ -190,7 +192,7 @@
 		},
 		methods:{
 			clickReturn(){
-				this.popupVisible = false
+				this.$router.go(-1)
 			},
 			screenClick(){
 				this.popupVisible = !this.popupVisible
@@ -200,6 +202,7 @@
 </script>
 
 <style lang="less" scoped>
+@searchcolor:#cdcbcb;
 .fontColor{
 	color: #323333;
 	font-size: 30px;
@@ -212,6 +215,21 @@
 			font-size: 45px;
 			color: #44403f;
 			padding: 0px 30px 0px 0px;
+		}
+		.search{
+			overflow: hidden;
+			width:70%;
+			height: 58px;
+			border: 2px solid @searchcolor;
+			padding-left: 18px;
+			display: flex;
+			align-items: center;
+			border-radius: 60px;
+			box-sizing: border-box;
+			.iconfont{
+				font-size: 36px;
+				color: @searchcolor;
+			}
 		}
 		.content{
 			background: #e9e9e9;
